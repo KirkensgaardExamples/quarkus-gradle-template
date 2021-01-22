@@ -1,6 +1,9 @@
 plugins {
     id 'java'
     id 'io.quarkus'
+    id 'checkstyle'
+    id 'pmd'
+    id 'findbugs'
 }
 
 repositories {
