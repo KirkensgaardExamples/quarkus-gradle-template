@@ -11,27 +11,31 @@ pipeline {
             parallel    {
                 stage('Build') {
                     steps {
-                        sh 'chmod +x gradlew'
+                        sleep 5
                         sh './gradlew clean build'
                     }
                 }
                 stage('Unit Test') {
                     steps {
+                        sleep 11
                         echo "Finished Unit Testing"
                     }
                 }
                 stage('Integration Test') {
                     steps {
+                        sleep 24
                         echo "Finished Integration Testing"
                     }
                 }
                 stage('Performance Test') {
                     steps {
+                        sleep 35
                         echo "Finished Performance Testing"
                     }
                 }
                 stage('Code Report Generation'){
                     steps {
+                        sleep 15
                         echo "Code Report Generated"
                     }
                 }
@@ -39,7 +43,7 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps{
-                sh 'docker build -t jkd/@projectName@ .'
+                sh 'docker build -t jkd/TestApp .'
             }
         }
         stage('Push Image to Docker Hub'){

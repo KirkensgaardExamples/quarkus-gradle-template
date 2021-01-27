@@ -1,4 +1,4 @@
-package jarl.k.due.resteasyjackson;
+package @packageName@.resteasyjackson;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

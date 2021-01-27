@@ -1,4 +1,4 @@
-package jarl.k.due;
+package @packageName@;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

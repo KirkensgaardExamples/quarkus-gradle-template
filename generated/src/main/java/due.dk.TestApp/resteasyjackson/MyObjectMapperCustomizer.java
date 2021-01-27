@@ -1,4 +1,4 @@
-package jarl.k.due.resteasyjackson;
+package due.dk.TestApp.resteasyjackson;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
