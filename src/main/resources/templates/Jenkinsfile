@@ -39,12 +39,13 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps{
-                sh 'docker build -t jkd/@projectName@ .'
+                sh 'docker build -t kirkensgaardexamples/generated-projects:@projectName@ .'
             }
         }
         stage('Push Image to Docker Hub'){
             steps{
-                echo 'Just Kidding'
+                sh 'docker login --username=kirkensgaardexamples --password=Right55HDuke'
+                sh 'docker push kirkensgaardexamples/generated-projects/@projectName@'
             }
         }
     }
