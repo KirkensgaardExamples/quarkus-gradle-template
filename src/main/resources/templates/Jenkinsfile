@@ -45,7 +45,7 @@ pipeline {
         stage('Push Image to Docker Hub'){
             steps{
                 sh 'docker login --username=kirkensgaardexamples --password=Right55HDuke'
-                sh 'docker push kirkensgaardexamples/generated-projects/@projectName@'
+                sh 'docker push kirkensgaardexamples/generated-projects:@projectName@'
             }
         }
     }
