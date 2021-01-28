@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Create Github Repo'){
             steps{
-                sh """curl -i -H "Authorization: token 949a81058d7ea564c9cc2e3f10da33d9dfb8f2ec" -d '{ "name": "${projectName}", "private": false}' https://api.github.com/user/repos"""
+                sh """curl -i -H \"Authorization: token 949a81058d7ea564c9cc2e3f10da33d9dfb8f2ec\" -d '{ "name": "${projectName}", "private": false}' https://api.github.com/user/repos"""
                 // sh 'curl -i -H "Authorization: token 949a81058d7ea564c9cc2e3f10da33d9dfb8f2ec" -d \'{ "name": "${projectName}", "private": false}\' https://api.github.com/user/repos'
                 }
         }
