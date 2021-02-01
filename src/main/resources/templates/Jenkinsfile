@@ -1,9 +1,20 @@
+import groovy.text.StreamingTemplateEngine
+
+def emailTemplate(params) {
+
+  def fileName = "email-html.template"
+  def fileContents = readFile(fileName)
+  def engine = new StreamingTemplateEngine()
+  return engine.createTemplate(fileContents).make(params).toString()
+
+}
 
 pipeline {
     environment{
-            dockerImage = "kirkensgaardexamples/generated-projects:@projectName@"
-            registryCredential = "test"
-            providedEmail = "jarl.due@gmail.com"
+            name = @name@
+            dockerImage = @dockerImage@
+            providedEmail = @providedEmail@
+            gitUrl = @gitUrl@
     }
     agent any
 
@@ -52,7 +63,15 @@ pipeline {
     }
     post{
         always{
-            emailext body: "Project Name is ${dockerImage}",
+            script{
+          generatedBody = emailTemplate([
+            "name"   :   env.name,
+            "dockerHub"    :   env.dockerImage,
+            "gitUrl" :   env.gitUrl
+        ]);
+            }
+            emailext body: generatedBody,
+                      mimeType: 'text/html',
                     subject: "Your Project is now on DockerHub!",
                     to: "${providedEmail}"
         }
