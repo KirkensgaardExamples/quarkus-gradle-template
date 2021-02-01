@@ -11,10 +11,10 @@ def emailTemplate(params) {
 
 pipeline {
     environment{
-            name = @name@
-            dockerImage = @dockerImage@
-            providedEmail = @providedEmail@
-            gitUrl = @gitUrl@
+            name = "@name@"
+            dockerImage = "@dockerImage@"
+            providedEmail = "@providedEmail@"
+            gitUrl = "@gitUrl@"
     }
     agent any
 
