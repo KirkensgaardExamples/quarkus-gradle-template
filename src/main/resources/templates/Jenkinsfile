@@ -1,8 +1,9 @@
 
 pipeline {
     environment{
-            registry = "test"
+            dockerImage = "kirkensgaardexamples/generated-projects:@projectName@"
             registryCredential = "test"
+            providedEmail = "jarl.due@gmail.com"
     }
     agent any
 
@@ -39,14 +40,21 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps{
-                sh 'docker build -t kirkensgaardexamples/generated-projects:@projectName@ .'
+                sh "docker build -t ${dockerImage} ."
             }
         }
         stage('Push Image to Docker Hub'){
             steps{
                 sh 'docker login --username=kirkensgaardexamples --password=Right55HDuke'
-                sh 'docker push kirkensgaardexamples/generated-projects:@projectName@'
+                sh "docker push ${dockerImage}"
             }
+        }
+    }
+    post{
+        always{
+            emailext body: "Project Name is ${dockerImage}",
+                    subject: "Your Project is now on DockerHub!",
+                    to: "${providedEmail}"
         }
     }
 }
