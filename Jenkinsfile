@@ -17,7 +17,7 @@ pipeline {
             }
             steps{
                 sh 'chmod +x gradlew'
-                sh './gradlew cleanArch generate -i -Dtarget=generated -Dname=${name} -DdockerImage=${dockerImage} -DprovidedEmail=${providedEmail} DgitUrl=${gitUrl} -Dgroup=${group} -Dname=${projectName} -Dversion=1.0-SNAPSHOT'
+                sh './gradlew cleanArch generate -i -Dtarget=generated -Dname=${name} -DdockerImage=${dockerImage} -DprovidedEmail=${providedEmail} -DgitUrl=${gitUrl} -Dgroup=${group} -Dname=${projectName} -Dversion=1.0-SNAPSHOT'
             }
         }
         stage('Create Github Repo'){
