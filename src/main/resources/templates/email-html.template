@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <link rel='preconnect' href='https://fonts.gstatic.com'/>
+  <link href='https://fonts.googleapis.com/css2?family=Kaushan+Script&amp;=swap' rel='stylesheet'/>
+  <h1 style='background-color:#212529; color:#fed136;font-family: Kaushan Script'>
+    Hi ${name}
+  </h1>
+  <body>
+    Your project has been generated via a jenkins pipeline, and can be found here : ${gitUrl}
+    <br/><br/>
+    After this, it was build as a docker image, from a pipeline that is part of the generated project.
+    <br/><br/>
+    You can pull the created dockerimage from the DockerHub using the command shown below.
+    <br/><br/>
+    <code>
+      docker pull "${dockerHub}"
+    </code>
+    <br/><br/>
+    To run it, type
+    <br/><br/>
+    <code>
+      docker run ${dockerHub}
+    </code>
+    <br/><br/>
+    For more detailed information, kindly see the Readme.MD file that has been supplied along side your generated project.
+    <br/><br/>
+  </body>
+  Best Regards,
+  <br/>
+  Kirkensgaard Examples
+</html>
