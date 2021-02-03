@@ -1,4 +1,4 @@
-package jarl.k.due;
+package @packageName@;
 
 import io.quarkus.test.junit.NativeImageTest;
 
