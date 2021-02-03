@@ -9,17 +9,7 @@
     Hi ${name}
   </h1>
   <body>
-    Jenkins has finished preparing your project, here is a short list of the tasks it has done for you.
-
-	 <ul>
-	 <li>Generated project from a template file</li>
-	 <li>Created a Git Repository.</li>
-	 <li>Pushed the generated project to this repository</li>
-	 <li>Build a dockerfile, based on this project</li>
-	 <li>Pushed this dockerfile to the dockerhub</li>
-	 </ul>
-
-	You can find the project at the follow git url : ${gitUrl}
+    Jenkins has finished rebuilding your project, and the changes are now available on Dockerhub.
     <br/><br/>
     If you wish to pull the created dockerimage from the DockerHub, use the command shown below.
     <br/><br/>
@@ -32,8 +22,6 @@
     <code>
       docker run -p 8080:8080 ${dockerHub}
     </code>
-    <br/><br/>
-    For more detailed information, kindly see the Readme.MD file that has been supplied along side your generated project.
     <br/><br/>
   </body>
   Best Regards,
